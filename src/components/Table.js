@@ -1,8 +1,15 @@
-function Table ({countries}) {
+
+import headers from '../input/tableInput';
+
+const Table = ({ countries }) => {
 
     console.log(countries)
 
-    return(<></>)
-}
+    return (
+        <table className='table'>
+
+        </table>
+    );
+};
 
 export default Table;
