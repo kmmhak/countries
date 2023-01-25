@@ -1,6 +1,25 @@
+import { useState } from 'react';
+import { IconContext } from "react-icons";
+import * as FaIcons from "react-icons/fa";
+
  function Navbar() {
+
+    const [country, setCountry] = useState('');
+
+
     return (
-        <div></div>
+        <>
+        <IconContext.Provider value={{ color: "#fff" }}>
+            <div className='navbar'>
+                <div className='menuIcon'>
+                <FaIcons.FaBars />
+                </div>
+                <h3 className='navBarTitle'>
+                    Country
+                </h3>
+            </div>
+        </IconContext.Provider>
+        </>
     )
  }
 

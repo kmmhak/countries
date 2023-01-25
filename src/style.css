@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #2b03da;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.menuIcon {
+  padding: 1rem;
+}
+
+.navBarTitle {
+  color: #fff
+}
