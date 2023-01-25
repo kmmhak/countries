@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import { IconContext } from "react-icons";
 import * as FaIcons from "react-icons/fa";
 
  function Navbar() {
-
-    const [country, setCountry] = useState('');
-
 
     return (
         <>
