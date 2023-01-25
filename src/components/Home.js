@@ -5,7 +5,7 @@ import Table from './Table';
 
 function Home() {
 
-    const [countries, setCountries] = useState(null);
+    const [countries, setCountries] = useState([]);
     const [fetchComplete, setfetchComplete] = useState(false)
 
     useEffect(() => {
@@ -28,8 +28,7 @@ function Home() {
                     number++
                     tabledata.push(countryData);
                     })
-                    
-                setCountries([tabledata])
+                setCountries(tabledata)
                 setfetchComplete(true);
             }
         })
@@ -37,13 +36,12 @@ function Home() {
             console.log(error);
         });
     }, []);
-
-
+  
     if (fetchComplete) {
         return (
             <>
                 <Navbar />
-                <Table countries={countries[0]}/>
+                <Table countries={countries}/>
             </>
         )
     } else {
