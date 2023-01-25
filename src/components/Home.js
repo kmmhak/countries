@@ -19,11 +19,13 @@ function Home() {
 
                 response.data.map((item) => {
                     let countryData = {};
-                    countryData.flag = item.flags.png;
-                    countryData.name = item.name.common;
-                    countryData.region = item.region;
-                    countryData.population = item.population;
-                    countryData.languages = item.languages;
+                    const rowData = {}
+                    rowData.flag = item.flags.png;
+                    rowData.name = item.name.common;
+                    rowData.region = item.region;
+                    rowData.population = item.population;
+                    rowData.languages = item.languages;
+                    countryData.items = rowData;
                     countryData.id = number;
                     number++
                     tabledata.push(countryData);
