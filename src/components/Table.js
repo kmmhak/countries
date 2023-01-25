@@ -1,4 +1,7 @@
-function Table () {
+function Table ({countries}) {
+
+    console.log(countries)
+
     return(<></>)
 }
 
