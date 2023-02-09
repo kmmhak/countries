@@ -7,9 +7,20 @@ const Home = () => {
 
     const [countries, setCountries] = useState([]);
     const [fetchComplete, setfetchComplete] = useState(false)
+/*
+    let languages = {"ara":"Arabic","som":"Somali", "fi": "Finnish"}
+    const resultTable = [];
+
+    Object.keys(languages).forEach(function (key){
+        resultTable.push(languages[key]);
+    })
+
+    console.log(resultTable)
+*/
 
     useEffect(() => {
 
+        
     axios
         .get(`https://restcountries.com/v3.1/all`)
         .then(function (response) {
@@ -23,7 +34,14 @@ const Home = () => {
                     countryData.name = item.name.common;
                     countryData.region = item.region;
                     countryData.population = item.population;
-                    countryData.languages = item.languages;
+                    countryData.languages = []
+                    if (item.languages !== undefined) {
+                        Object.keys(item.languages).forEach(function (key){
+                            countryData.languages.push(item.languages[key]);
+                        })
+                    } else {
+                        countryData.languages.push('-');
+                    }
                     countryData.id = number;
                     number++
                     tabledata.push(countryData);
@@ -37,18 +55,18 @@ const Home = () => {
         });
     }, []);
   
-    if (fetchComplete) {
+    if (fetchComplete) { 
         return (
             <>
                 <Navbar />
                 <div className='container'>
-                    <Table countries={countries} />  
+                    <Table countries={countries} />
                 </div>
             </>
         )
     } else {
         return <h1>Loading...</h1>;
-    }
+    } 
     
 }
 

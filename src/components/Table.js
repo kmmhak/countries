@@ -6,8 +6,8 @@ import { useTable } from 'react-table';
 const Table = ({ countries }) => {
 
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo (() => countries, [])
-
+    const data = useMemo (() => countries, [countries])
+    
     const {
         getTableProps,
         getTableBodyProps,
@@ -39,7 +39,7 @@ const Table = ({ countries }) => {
                     <tr {...row.getRowProps()}>
                         {
                             row.cells.map(cell => {
-                                return <td key={cell.id} {...cell.getCellProps}>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps}>{cell.render('Cell')}</td>
                             })
                         }
                     </tr>
