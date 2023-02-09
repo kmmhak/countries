@@ -5,7 +5,7 @@ export const COLUMNS = [
         Cell: tableProps => (
             <img
                 src={tableProps.row.original.flag}
-                width={60}
+                width={150}
                 alt='Flag'
             />
         )
@@ -24,7 +24,13 @@ export const COLUMNS = [
     },
     {
         Header: 'Languages',
-        accessor: 'id',
+        accessor: 'languages',
+        Cell: tableProps => {
+            return (
+                tableProps.row.original.languages.map((language) => <ul><li>{language}</li></ul>)
+            )
+        }
+            
 
     },
 
