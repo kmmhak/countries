@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Table from './Table';
 
-function Home() {
+const Home = () => {
 
     const [countries, setCountries] = useState([]);
     const [fetchComplete, setfetchComplete] = useState(false)
@@ -17,15 +17,13 @@ function Home() {
                 let number = 0;
                 const tabledata = []
 
-                response.data.map((item) => {
+                response.data.forEach((item) => {
                     let countryData = {};
-                    const rowData = {}
-                    rowData.flag = item.flags.png;
-                    rowData.name = item.name.common;
-                    rowData.region = item.region;
-                    rowData.population = item.population;
-                    rowData.languages = item.languages;
-                    countryData.items = rowData;
+                    countryData.flag = item.flags.png;
+                    countryData.name = item.name.common;
+                    countryData.region = item.region;
+                    countryData.population = item.population;
+                    countryData.languages = item.languages;
                     countryData.id = number;
                     number++
                     tabledata.push(countryData);
@@ -43,7 +41,9 @@ function Home() {
         return (
             <>
                 <Navbar />
-                <Table countries={countries}/>
+                <div className='container'>
+                    <Table countries={countries} />  
+                </div>
             </>
         )
     } else {
